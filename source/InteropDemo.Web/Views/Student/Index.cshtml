@@ -1,4 +1,4 @@
-﻿@model IEnumerable<InteropDemo.Domain.Student>
+﻿@model IEnumerable<InteropDemo.Web.Models.StudentViewModel>
 
 @{
     ViewData["Title"] = "Students";
@@ -32,9 +32,6 @@
                     @Html.DisplayNameFor(model => model.Phone)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Birth)
-                </th>
-                <th>
                     Course Title
                 </th>
             <th></th>
@@ -55,9 +52,6 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Phone)
             </td>
-	        <td>
-		        @Html.DisplayFor(modelItem => item.Birth)
-	        </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Course.Title)
             </td>

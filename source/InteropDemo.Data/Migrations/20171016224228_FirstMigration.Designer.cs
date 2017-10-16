@@ -5,13 +5,12 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
-using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
 namespace InteropDemo.Data.Migrations
 {
     [DbContext(typeof(InteropDemoContext))]
-    [Migration("20171016191608_FirstMigration")]
+    [Migration("20171016224228_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -47,8 +46,6 @@ namespace InteropDemo.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("Birth");
 
                     b.Property<int>("CourseId");
 

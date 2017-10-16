@@ -30,7 +30,6 @@ namespace InteropDemo.Data.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Birth = table.Column<DateTime>(type: "TEXT", nullable: false),
                     CourseId = table.Column<int>(type: "INTEGER", nullable: false),
                     Email = table.Column<string>(type: "TEXT", maxLength: 200, nullable: true),
                     Name = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),

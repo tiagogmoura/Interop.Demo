@@ -1,4 +1,4 @@
-﻿@model InteropDemo.Domain.Student
+﻿@model InteropDemo.Web.Models.StudentViewModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -34,14 +34,13 @@
                 <span asp-validation-for="Phone" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Birth" class="control-label"></label>
-                <input asp-for="Birth" class="form-control" />
-                <span asp-validation-for="Birth" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="CourseId" class="control-label"></label>
-                <input asp-for="CourseId" class="form-control" />
-                <span asp-validation-for="CourseId" class="text-danger"></span>
+
+				<select asp-for="CourseId" class="form-control"
+						asp-items="@(new SelectList(@ViewBag.CourseList, "Id", "Title", ""))"></select>
+				
+
+	            <span asp-validation-for="CourseId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
