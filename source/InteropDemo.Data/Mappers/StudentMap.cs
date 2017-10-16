@@ -17,8 +17,8 @@ namespace InteropDemo.Data.Mappers
 		    entityBuilder.Property(s => s.Email)
 			    .HasMaxLength(200);
 
-			entityBuilder.Property(s => s.Birth)
-				.HasColumnType("Date");
+			//entityBuilder.Property(s => s.Birth)
+			//	.HasColumnType("Date");
 
 			entityBuilder.Property(s => s.Phone)
 			    .HasMaxLength(30);

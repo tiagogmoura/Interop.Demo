@@ -11,17 +11,14 @@ namespace InteropDemo.Data
 	{
 		public InteropDemoContext CreateDbContext(string[] args)
 		{
-			//var builder = new DbContextOptionsBuilder<InteropDemoContext>();
-			//builder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=pinchdb;Trusted_Connection=True;MultipleActiveResultSets=true");
-			//return new InteropDemoContext(builder.Options);
-
 			IConfigurationRoot configuration = new ConfigurationBuilder()
 				.SetBasePath(Directory.GetCurrentDirectory())
 				.AddJsonFile("appsettings.json")
 				.Build();
 			var builder = new DbContextOptionsBuilder<InteropDemoContext>();
 			var connectionString = configuration.GetConnectionString("DefaultConnection");
-			builder.UseSqlServer(connectionString);
+			//builder.UseSqlServer(connectionString);
+			builder.UseSqlite(connectionString);
 			return new InteropDemoContext(builder.Options);
 		}
 	}

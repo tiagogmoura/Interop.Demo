@@ -17,8 +17,7 @@ namespace InteropDemo.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.0.0-rtm-26452")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "2.0.0-rtm-26452");
 
             modelBuilder.Entity("InteropDemo.Domain.Course", b =>
                 {
@@ -48,8 +47,7 @@ namespace InteropDemo.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("Birth")
-                        .HasColumnType("Date");
+                    b.Property<DateTime>("Birth");
 
                     b.Property<int>("CourseId");
 
