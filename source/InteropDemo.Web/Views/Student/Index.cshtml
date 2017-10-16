@@ -1,0 +1,77 @@
+﻿@model IEnumerable<InteropDemo.Domain.Student>
+
+@{
+    ViewData["Title"] = "Students";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-header">
+	<h2>@ViewData["Title"]</h2>
+</div>
+
+<p>
+	<a asp-action="Create" class="btn btn-default">
+		<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+		Add
+	</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Birth)
+                </th>
+                <th>
+                    Course Title
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+	        <td>
+		        @Html.DisplayFor(modelItem => item.Birth)
+	        </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.Title)
+            </td>
+            <td>
+	            @Html.ActionLink("Edit", "Edit", new { item.Id }, 
+		            new { @class = "btn btn-default" })
+		        
+	            @Html.ActionLink("Delete", "Delete", new { item.Id },
+		            new {
+			            @onclick = "return confirm('Are you sure you want to delete this student?');",
+			            @class = "btn btn-default"
+		            })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

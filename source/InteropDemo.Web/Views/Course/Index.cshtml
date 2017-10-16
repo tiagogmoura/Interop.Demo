@@ -1,0 +1,73 @@
+﻿@model IEnumerable<InteropDemo.Domain.Course>
+
+@{
+    ViewData["Title"] = "Courses";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-header">
+	<h2>@ViewData["Title"]</h2>
+</div>
+
+
+<p>
+	<a asp-action="Create" class="btn btn-default">
+		<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+		Add
+	</a>
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Room)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Investment)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Room)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Investment)
+            </td>
+	        <td>		
+		        @Html.ActionLink("Edit", "Edit", new { item.Id }, 
+					new { @class = "btn btn-default" })
+		        
+				@Html.ActionLink("Delete", "Delete", new { item.Id },
+					new {
+						@onclick = "return confirm('Are you sure you want to delete this course?');",
+						@class = "btn btn-default"
+					})
+	        </td>
+        </tr>
+}
+    </tbody>
+</table>
