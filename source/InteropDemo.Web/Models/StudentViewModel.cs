@@ -10,7 +10,7 @@ namespace InteropDemo.Web.Models
 		public string Name { get; set; }
 
 	    [Required]
-		[EmailAddress(ErrorMessage = "E-mail inválido")]
+		[EmailAddress(ErrorMessage = "The Email field is invalid.")]
 		public string Email { get; set; }
 	    public string Phone { get; set; }
 	    public int CourseId { get; set; }
