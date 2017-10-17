@@ -25,6 +25,7 @@ namespace InteropDemo.Web
 			services.AddMvc();
 
 			services.AddDbContext<InteropDemoContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+	        services.BuildServiceProvider().GetService<InteropDemoContext>().Database.Migrate();
 			services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 		}
 
