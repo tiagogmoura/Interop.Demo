@@ -17,7 +17,6 @@ namespace InteropDemo.Data
 				.Build();
 			var builder = new DbContextOptionsBuilder<InteropDemoContext>();
 			var connectionString = configuration.GetConnectionString("DefaultConnection");
-			//builder.UseSqlServer(connectionString);
 			builder.UseSqlite(connectionString);
 			return new InteropDemoContext(builder.Options);
 		}
